@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    </link>
+</head>
+
+<body>
+
+    <div id="app">
+        <div v-if="books.length">
+            <table>
+                <thread>
+                    <tr>
+                        <td></td>
+                        <td>书籍名称</td>
+                        <td>出版日期</td>
+                        <td>价格</td>
+                        <td>购买数量</td>
+                        <td>操作</td>
+                    </tr>
+                </thread>
+                <tbody>
+                    <tr v-for="(item,index) in books">
+                        <td>{{item.id}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.data}}</td>
+                        <!-- <td>{{getFinalPrice(item.price)}}</td> -->
+                        <td>{{item.price | showPrice}}</td>
+                        <td>
+                            <button @click="decrement(index)" v-bind:disabled="item.count<=1">-</button>
+                            {{item.count}}
+                            <button @click="increment(index)">+</button>
+                        </td>
+                        <td><button @click="removeHandle(index)">移除</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>总价格:{{totalPrice | showPrice}}</h2>
+        </div>
+        <h2 v-else>购物车为空</h2>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+    <script>
+
+    </script>
+</body>
+
+</html>
+
+<!-- file:///Users/xuwenyan/Downloads/study/vue/vueStudy/public/shoppingCart/index.html -->
