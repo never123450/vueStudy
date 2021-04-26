@@ -15,18 +15,20 @@
     <div id="app">
         <cpn></cpn>
         <cpn>
-            <!--  目的是获取子组件中的 pLanguage -->
+            <!--  目的是获取子组件中的 pLanguages -->
             <template slot-scope="slot">
-                <span v-for="item int slot.data">{{item}} - </span>
+                <!-- <span v-for="item in slot.data">{{item}} - </span> -->
+                <span>{{slot.data.join(' - ')}}</span>
             </template>
         </cpn>
 
-        cpn>
+        <cpn>
             <!--  目的是获取子组件中的 pLanguage -->
             <template slot-scope="slot">
-                <span v-for="item int slot.data">{{item}} * </span>
+                <!-- <span v-for="item in slot.data">{{item}} * </span> -->
+                <span>{{slot.data.join(' | ')}}</span>
             </template>
-        </cpn>
+        </cpn> 
     </div>
 </body>
 
@@ -58,6 +60,7 @@
                         pLanguages: ['Java', 'Java', 'C++', 'Python', 'go', 'swift']
                     }
                 },
+               
             }
         }
     })
