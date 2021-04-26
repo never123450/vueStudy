@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <cpn></cpn>
+        <cpn ref="ref"></cpn>
+        <button @click="btnClick">按钮</button>
+    </div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<!-- template标签 -->
+<template id="cpn">
+    <div>
+        <div>我是子组件</div>
+    </div>
+</template>
+
+<script>
+    const cpn = {
+        template: '#cpn',
+    }
+
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: '你好啊'
+        },
+        methods: {
+            btnClick() {
+
+                // 1.$children
+                // console.log(this.$children);
+                // for(let c of this.$children){
+                //     console.log(c.name);
+                //     c.showMessage();
+                // }
+
+                // 2.$refs
+                console.log(this.$refs);
+
+                
+            }
+        },
+        components: {
+            cpn: {
+                template: '#cpn',
+                data() {
+                    return {
+                        name : '我是子组件的name'
+                    }
+                },
+                methods: {
+                    showMessage() {
+                        console.log("showMessage");
+                    }
+                },
+            }
+        }
+
+    })
+</script>
+
+</html>
