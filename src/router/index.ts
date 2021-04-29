@@ -1,7 +1,13 @@
 import Vue from "vue";
+// 路由配置相关信息
 import VueRouter, { RouteConfig } from "vue-router";
-import Home from "../views/Home.vue";
+// import Home from "../views/Home.vue";
+const Home = () => import('../views/Home.vue');
+const HomeNews = () => import('../views/HomeNews.vue');
+const HomeMessage = () => import('../views/HomeMessage.vue');
+const Profile = () => import('../views/Profile.vue');
 
+// 通过Vue.use(插件),安装插件
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
@@ -9,6 +15,24 @@ const routes: Array<RouteConfig> = [
     path: "/",
     name: "Home",
     component: Home,
+    children: [
+      {
+        path: '',
+        redirect: 'news'
+      },
+      {
+        path: 'news',
+        component: HomeNews
+      },
+      {
+        path: 'message',
+        component: HomeMessage
+      },
+      {
+        path: '/profile',
+        component: Profile
+      }
+    ]
   },
   {
     path: "/about",

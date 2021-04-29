@@ -2,12 +2,57 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/about">About</router-link> |
+      <router-link :to="'/user/' + userId">用户</router-link> |
+      <!-- <router-link
+        :to="{ path: '/profile', query: { name: 'why', age: 11, height: 1.9 } }"
+        >档案</router-link
+      > -->
+      <button @click="userClick">用户</button>
+      <button @click="profileClick">档案</button>
     </div>
     <router-view />
   </div>
 </template>
 
+<script>
+export default {
+  name: "APP",
+  data() {
+    return {
+      userId: "xwy",
+      imgURL: "http://www.baidu.com.logo.png",
+    };
+  },
+  methods: {
+    homeClick() {
+      // 通过代码的方式修改路由 vue-router
+      // push => pushState
+      // this.$router.push('/home')
+      this.$route.replace("/home");
+      console.log("homeClick");
+    },
+    aboutClick() {
+      // $router.push('/about');
+      this.$router.replace("/about");
+      console.log("aboutClick");
+    },
+    userClick() {
+      this.$router.push("/user/" + this.userId);
+    },
+    profileClick() {
+      this.$router.push({
+        path: "/profile",
+        query: {
+          name: "kobe",
+          age: 11,
+          height: 1.9
+        },
+      });
+    },
+  },
+};
+</script>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

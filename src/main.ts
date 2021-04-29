@@ -5,8 +5,13 @@ import store from "./store";
 
 Vue.config.productionTip = false;
 
+Vue.prototype.name = 'xwy';
+
 new Vue({
   router,
   store,
   render: (h) => h(App),
 }).$mount("#app");
+
+console.log(router);
+
