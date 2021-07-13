@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    {{message}}
+    <ul>
+      <li v-for="item in movies">{{item}}</li>
+    </ul>
+  </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+  // let 变量,const 常量
+  const app = new Vue({
+    el:"#app",//用于挂载要管理的元素
+    data:{
+      // 定义数据
+      message:'你好啊,vue',
+      movies:['星际穿越','大话西游','盗梦空间','蝴蝶效应']
+    }
+  })
+</script>
+</html>

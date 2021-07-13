@@ -1,17 +1,24 @@
-# 简单认识 Vuejs
-Vue是一个渐进式的框架,什么是渐进式的呢?
-渐进式意味着你可以将Vue作为你应用的一部分嵌入其中,带来更丰富的交互体验。
-或者如果你希望将更多的业务逻辑使用Vue实现,那么Vue的核心库以及其生态系统。
-比如Core+Vue-router+Vuex ,也可以满足你各种各样的需求。
+# vue-study
 
-Vue有很多特点和Web开发中常见的高级功能
-解耦视图和数据
-可复用的组件
-前端路由技术
-状态管理
-虚拟DOM
-■这些特点,你不需要一个个去记住 ,我们在后面的学习和开发中都会慢慢体会到的,-些技术点我也会在后面进行讲解。
-■学习Vuejs的前提?
-从零学习Vue开发,并不需要你具备其他类似于Angular. React ,甚至是jQuery的经验。
-但是你需要具备一定的HTML、 CSS、 JavaScript基础。
+## Project setup
+```
+npm install
+```
 
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
