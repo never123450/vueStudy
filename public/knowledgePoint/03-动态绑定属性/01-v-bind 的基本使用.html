@@ -16,12 +16,23 @@
   <a v-bind:href="aHref">百度一下</a>
   <div id='app'>
     <h2>{{message}}</h2>
-  </div>
-  <h2 class="active">{{message}}</h2>
-  <h2 :class="active">{{message}}</h2>
+    <h2 class="active">{{message}}</h2>
+    <h2 :class="getClass()">{{message}}</h2>
+    <h2 v-bind:class="{active:isActive,line:isLine}"> {{message}}</h2>
+    <button v-on:click="btnClick">按钮</button>
 
-  <h2 v-bind:class="{active:isActive,line:isLine}"> {{message}}</h2>
-  <button v-on:click="btnClick">按钮</button>
+    ------------------------------------------
+
+    <h2 class="title" :class="[active,line]">{{message}}</h2>
+    <h2 class="title" :class="getClasses()">{{message}}</h2>
+
+    ------------------------------------------
+
+    <!-- 点击列表中的哪一项，哪一项就变红 -->
+    <ul>
+      <li v-for="(m,index) in movies">{{index}}-{{m}}</li>
+    </ul>
+  </div>
 </body>
 
 <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
@@ -33,11 +44,18 @@ const app = new Vue({
     imgUrl:"https://dss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/logo_white-d0c9fe2af5.png",
     aHref:"www.baidu.com",
     isActive:true,
-    isLine:true
+    isLine:true,
+    movies:['海王','海尔兄弟','火影忍者','进击的巨人']
   },
   methods: {
     btnClick:function(){
       this.isActive = !this.isActive
+    },
+    getClass:function(){
+      return {active:this.isActive,line:this.isLine}
+    },
+    getClasses:function(){
+      return [this.active,this.line]
     }
   },
 })

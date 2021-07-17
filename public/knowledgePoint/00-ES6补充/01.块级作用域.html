@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+    <button>按钮4</button>
+    <button>按钮5</button>
+</body>
+<script>
+
+    var func;
+    if(true){
+        var name = 'why'
+        func = function(){
+            console.log(name) // kobe
+        }
+    }
+    name = 'kobe'
+    func()
+    console.log(name) // kobe 
+
+    // ------------------------------------------------
+    // ES5之前因为 if 和 for 都没有块级作用域的概念，所以在很多时候
+    // 我们都必须借助function 的作用域来解决应用外面变量的问题
+    // ES6 中加入了 let， let 他是有 if 和 for 的块级作用域
+
+    // 没有块级作用域引起的问题：for的块级
+    var btns = document.getElementsByTagName('button')
+    for(var i=0;i<btns.length;i++){
+        btns[i].addEventListener('click',function(){
+            console.log('第var '+i+'个按钮被点击')
+        })
+    }
+
+    // 使用闭包：为什么闭包可以解决问题：函数是一个作用域
+    for(var i=0;i<btns.length;i++){
+        (function(i){btns[i].addEventListener('click',function(){
+            console.log('第闭包 '+i+'个按钮被点击')
+        })
+    })(i)
+    }
+
+    for(let i=0;i<btns.length;i++){
+        btns[i].addEventListener('click',function(){
+            console.log('第let '+i+'个按钮被点击')
+        })
+    }
+
+</script>
+</html>

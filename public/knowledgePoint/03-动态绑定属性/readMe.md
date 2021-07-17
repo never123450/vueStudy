@@ -9,3 +9,10 @@
   缩写: :
   预期: any (with argument) | Object (without argument)
   参数: attrOrProp (optional)
+
+很多时候，我们希望动态的来切换class ，比如:
+- 当数据为某个状态时，字体显示红色。
+- 当数据另一个状态时，字体显示黑色。
+绑定class有两种方式:
+- 对象语法
+- 口数组语法

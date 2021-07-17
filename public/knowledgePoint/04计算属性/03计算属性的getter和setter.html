@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='app'>
+        <h2>{{message}}</h2>
+        <h2>{{fullName}}</h2>
+        <h2>{{fullName}}</h2>
+        <h2>{{getFullName()}}</h2>
+        <h2>{{getFullName()}}</h2>
+    </div>
+    <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+    <script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+            message : '你好,vue',
+            firstName:'Kobe',
+            lastName:'Bryant'
+        },
+        computed:{
+            fullName:{
+                // 计算属性一般是没有set方法，只读属性
+                set:function(newValue){
+                    console.log(newValue)
+                },
+                // 有缓存
+                get:function(){
+                    console.log('computed')
+                    return this.firstName + " " + this.lastName
+                }
+            }
+            // fullName:function(){
+            //     return this.firstName + " " + this.lastName
+            // }
+        },
+        methods:{
+            getFullName:function(){
+                // 会执行多次
+                console.log('getFullName')
+                return this.firstName + " " + this.lastName
+            }
+        }
+    })
+    </script>
+</body>
+</html>
