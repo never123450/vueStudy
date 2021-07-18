@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='app'>
+        <h2>{{message}}</h2>
+        <span v-if="isUser">
+           <label for="username">用户账号</label> 
+           <input type="text" id='username' placeholder="用户账号">
+        </span>
+        <span v-else>
+            <label for="email">用户邮箱</label> 
+            <input type="text" id='email' placeholder="用户邮箱">
+        </span>
+        <button @click='isUser=!isUser'>类型切换</button>
+    </div>
+    <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+    <script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+            message : '你好,vue',
+            isUser:true
+        }
+    })
+    </script>
+</body>
+</html>
+
+<!-- 
+小问题:
+如果我们在有输入内容的情况下，切换了类型，我们会发现文字依然显示之前
+的输入的内容。
+但是按道理讲，我们应该切换到另外一个input元素中了。
+在另一个input元素中，我们并没有输入内容。
+为什么会出现这个问题呢?
+
+问题解答:
+这是因为Vue在进行DOM渲染时，出于性能考虑，会尽可能的复用已经存在的元素，而不是重新创建新的元素。
+在上面的案例中，Vue内部会发现原来的input元素不再使用，直接作为else中的input来使用了。
+解决方案∶
+如果我们不希望Vue出现类似重复利用的问题，可以给对应的input添加key并且我们需要保证key的不同
+ -->
+
+ <!-- v-if:当条件为false时，包含v-if指令的元素，根本就不会存在dom中-->
+
+ <!-- 
+     v-show的用法和v-if非常相似，也用于决定一个元素是否渲染
+     v-if和v-show对比
+    v-if和v-show都可以决定一个元素是否渲染，那么开发中我们如何选择呢?
+    v-if当条件为false时，压根不会有对应的元素在DOM中。
+    v-show当条件为false时，仅仅是将元素的display属性设置为none而已。
+    ■开发中如何选择呢?
+    当需要在显示与隐藏之间切片很频繁时，使用v-show口当只有一次切换时，通过使用v-if
+
+  -->
