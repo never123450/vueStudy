@@ -30,7 +30,7 @@
 
     <!-- 点击列表中的哪一项，哪一项就变红 -->
     <ul>
-      <li v-for="(m,index) in movies">{{index}}-{{m}}</li>
+      <li v-for="(m,index) in movies" :class="{active:currentIndex==index}" @click="linClick(index)">{{index}}-{{m}}</li>
     </ul>
   </div>
 </body>
@@ -45,7 +45,8 @@ const app = new Vue({
     aHref:"www.baidu.com",
     isActive:true,
     isLine:true,
-    movies:['海王','海尔兄弟','火影忍者','进击的巨人']
+    movies:['海王','海尔兄弟','火影忍者','进击的巨人'],
+    currentIndex:0
   },
   methods: {
     btnClick:function(){
@@ -56,6 +57,9 @@ const app = new Vue({
     },
     getClasses:function(){
       return [this.active,this.line]
+    },
+    linClick(index){
+      this.currentIndex = index
     }
   },
 })
