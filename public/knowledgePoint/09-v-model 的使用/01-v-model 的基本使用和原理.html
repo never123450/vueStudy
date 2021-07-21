@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id='app'>
+    <!-- <input type="text" v-model="message"> -->
+
+    <!-- v-model 的实现原理 -->
+    <!-- 
+      ■v-model其实是一个语法糖,它的背后本质上是包含两个操作:
+      01.v-bind绑定一个value属性
+      02.v-on指令给当前元素绑定input事件
+      ■也就是说下面的代码:等同于下面的代码:
+      <input type="text" v-mode1="message">
+      等同于
+      <input type="text" v-bind:value="message" v-on:input= "message = $event.target.value">
+     -->
+    <input type="text" v-bind:value="message" v-on:input="valueChange">
+    <input type="text" :value="message" @input="valueChange">
+
+    <h2>{{message}}</h2>
+  </div>
+  <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+  <script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message : '你好,vue'
+    },
+    methods:{
+      valueChange(event){
+        console.log(event)
+        this.message = event.target.value
+      }
+    }
+  })
+  </script>
+
+</body>
+</html>
