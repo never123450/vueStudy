@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id='app'>
+    <h2>{{message}}</h2>
+
+    <select name="abc" id="" v-model="fruit">
+      <option value="苹果" >苹果</option>
+      <option value="苹果1" >苹果1</option>
+      <option value="苹果2" >苹果2</option>
+      <option value="苹果3" >苹果3</option>
+      <option value="苹果4" >苹果4</option>
+    </select>
+
+    <h2>您选择的水果是:{{fruit}}</h2>
+
+
+    <select name="abc" id="" v-model="fruits" multiple>
+      <option value="苹果" >苹果</option>
+      <option value="苹果1" >苹果1</option>
+      <option value="苹果2" >苹果2</option>
+      <option value="苹果3" >苹果3</option>
+      <option value="苹果4" >苹果4</option>
+    </select>
+
+    <h2>您选择的水果是:{{fruits}}</h2>
+
+  </div>
+  <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+  <script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message : '你好,vue',
+      fruit:'苹果',
+      fruits:[]
+    }
+  })
+  </script>
+</body>
+</html>
