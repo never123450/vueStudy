@@ -11,6 +11,9 @@
     <h2>{{message}}</h2>
     <cpn></cpn>
   </div>
+
+  <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+
   <template id='cpn'>
     <div>
       <div>我是组件</div>
@@ -19,16 +22,10 @@
       <button @click="decrement">-</button>
     </div>
   </template>
-  <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+
   <script>
-  const app = new Vue({
-    el:'#app',
-    data:{
-      message : '你好,vue'
-    },
-    components:{cpn}
-  })
-  // 1.注册组件
+
+  // 1.注册组件  必须在 app 的上面
   Vue.component('cpn',{
     template : '#cpn',
     data(){
@@ -43,7 +40,15 @@
       decrement(){
         this.counter--
       }
-    },
+    }
+  })
+
+  // 必须在 component 的下面
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message : '你好,vue'
+    }
   })
 
   </script>
