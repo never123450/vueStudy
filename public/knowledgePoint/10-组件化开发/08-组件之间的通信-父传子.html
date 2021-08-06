@@ -1,3 +1,22 @@
+
+<!-- 
+    组件可以访问Vue实例数据吗?
+    ■组件是一个单独功能模块的封装:
+    口这个模块有属于自己的HTML模板,也应该有属性自己的数据data。
+    ■组件中的数据是保存在哪里呢?顶层的Vue实例中吗?
+    口组件中能不能直接访问Vue实例中的data?,不能!
+
+
+    组件数据的存放
+    ■组件自己的数据存放在哪里呢?
+    组件对象也有-个data属性(也可以有methods等属性,下面我们有用到)
+    只是这个data属性必须是-一个函数
+    而且这个函数返回一个对象,对象内部保存着数据
+
+    父组件向子组件传使用 props
+    子组件向父组件传使用 emit
+ -->
+
 <!DOCTYPE html>
 <html lang="">
 
@@ -11,7 +30,7 @@
 
 <body>
     <div id="app">
-        <!-- <cpn v-bind:cmovies="movies" :cmessage="message"></cpn> -->
+        <cpn v-bind:cmovies="movies" :cmessage="message"></cpn>
         <cpn :cmessage="message"></cpn>
     </div>
     <!-- built files will be auto injected -->

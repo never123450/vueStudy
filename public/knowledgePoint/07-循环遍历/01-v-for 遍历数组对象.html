@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <h2>{{message}}</h2>
+    <!-- 在遍历的过程中,没有使用索引 -->
+    <ul>
+      <li v-for="item in names">{{item}}</li>
+    </ul>
+    <!-- 在遍历的过程中,使用索引 -->  
+    <ul>
+      <li v-for="(item,index) in names">{{index}} - {{item}}</li>
+    </ul>
+
+    <!-- 在遍历对象的过程中,如果只是获取一个值,那么获取到的是 value -->
+    <ul>
+      <li v-for="item in info">{{item}}</li>
+    </ul>
+
+    <ul>
+      <li v-for="(value,key) in info">{{key}} - {{value}}</li>
+    </ul>
+
+  </div>
+  <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+  <script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message : '你好,vue',
+      names:['why','kone','kina','james','curry'],
+      info:{
+        name:'why',
+        age:19,
+        height:199
+      }
+    }
+  })
+  </script>
+</body>
+</html>
