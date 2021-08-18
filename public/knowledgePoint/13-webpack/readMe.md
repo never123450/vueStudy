@@ -121,4 +121,35 @@ new Vue({
  步骤一: 通过npm安装需要使用的plugins(某些webpack已经内置的插件不需要安装)
  步骤二:在webpack.config.js中的plugins中配置插件。
 
- 
+
+什么是Vue CLI
+■如果你只是简单写几个Vue的Demo程序,那么你不需要Vue CLI.
+■如果你在开发大型项目,那么你需要,并且必然需要使用Vue CUI
+  使用Vue.js开发大型应用时,我们需要考虑代码目录结构、项目结构和部署、热加载、代码单元测试等事情。
+  如果每个项目都要手动完成这些工作,那无疑效率比较低效,所以通常我们会使用一些脚手架工具来帮助完成这些事情。
+■CLI是什么意思?
+  CLI是Command-Line Interface,翻译为命令行界面,但是俗称脚手架.
+  Vue CLI是一个官方发布vue.js项目脚手架
+  使用vue-cli可以快速搭建Vue开发环境以及对应的webpack配置.
+■脚手架长什么样子?
+  建筑初期搭的架子
+
+Vue CLI 使用前提 Node
+
+■什么是NPM呢?
+ NPM的全称是Node Package Manager
+ 是一个NodeJS包管理和分发工具,已经成为了非官方的发布Node模块(包)的标准。
+ 后续我们会经常使用NPM来安装一些开发过程中依赖包.
+
+ Vue CLI 使用前提 webpack
+
+Vue.js官方脚手架工具就使用了webpack模板
+ 对所有的资源会压缩等优化操作
+ 它在开发过程中提供了一套完整的功能 ,能够使得我们开发过程中变得高效。
+
+
+. Vue CLI2 初始项目
+ vue init webpack my-project
+. Vue CLI3 初始化项目
+ vue create my-project
+
