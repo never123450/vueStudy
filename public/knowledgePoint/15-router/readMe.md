@@ -105,3 +105,38 @@ lconst routes = [
 path配置的是根路径:/
 redirect 是重定向,也就是我们将根路径重定向到/home的路径下，这样就可以得到我们想要的结果了.
 
+
+## 认识路由的懒加载
+
+官方给出了解释:
+    当打包构建应用时，Javascript包会变得非常大，影响页面加载。
+如果我们能把不同路由对应的组件分割成不同的代码块，然后当路由被访问的时候才加载对应组件，这样就更加高效了
+官方在说什么呢?
+    首先,我们知道路由中通常会定义很多不同的页面.
+    这个页面最后被打包在哪里呢?一般情况下,是放在一个js文件中.
+    但是，页面这么多放在一个js文件中,必然会造成这个页面非常的大.
+    如果我们一次性从服务器请求下来这个页面,可能需要花费一定的时间,甚至用户的电脑上还出现了短暂空白的情况.
+    如何避免这种情况呢?使用路由懒加载就可以了.
+
+路由懒加载做了什么?
+    路由懒加载的主要作用就是将路由对应的组件打包成一个个的js代码块.口只有在这个路由被访问到的时候,才加载对应的组件
+
+
+## 懒加载的方式
+- 方式一:结合Vue的异步组件和Webpack的代码分析.
+const Home = resolve => { require.ensure([ ' ../components/Home.vue']， () =>i resolve(require( ' ../ components/Home.vue' ))})};
+- 方式二:AMD写法
+const About = resolve => require([ '../components/About.vue'],resolve)
+- 方式三:在ES6中,我们可以有更加简单的写法来组织Vue异步组件和Webpack的代码分割.const Home = () => import(' ../ components/Home.vue')
+
+
+## 传递参数的方式
+传递参数主要有两种类型: params和query
+- params的类型:
+配置路由格式: /router/:id
+传递的方式:在path后面跟上对应的值
+传递后形成的路径: /router/123,/router/abc
+- query的类型:
+配置路由格式:/router,也就是普通配置
+传递的方式:对象中使用query的key作为传递方式
+传递后形成的路径: /router?id=123,/router?id=abc

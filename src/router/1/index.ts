@@ -2,9 +2,11 @@ import Vue from "vue";
 // 路由配置相关信息
 import VueRouter, { RouteConfig } from "vue-router";
 // import Home from "../views/Home.vue";
+
+// 懒加载方式
 // const Home = () => import("../../views/1/Home.vue");
 const HomeNews = () => import("../../views/1/HomeNews.vue");
-// const HomeMessage = () => import("../../views/1/HomeMessage.vue");
+const HomeMessage = () => import("../../views/1/HomeMessage.vue");
 // const Profile = () => import("../../views/1/Profile.vue");
 const About = () => import("../../views/1/About.vue");
 const User = () => import("../../views/1/User.vue");
@@ -16,25 +18,20 @@ const routes: Array<RouteConfig> = [
   {
     path: "/",
     name: "Home",
-    component: HomeNews,
-    // children: [
-    //   {
-    //     path: '',
-    //     redirect: 'news'
-    //   },
-    //   {
-    //     path: 'news',
-    //     component: HomeNews
-    //   },
-    //   {
-    //     path: 'message',
-    //     component: HomeMessage
-    //   },
-    //   {
-    //     path: '/profile',
-    //     component: Profile
-    //   }
-    // ]
+    children: [
+      {
+        path: "news",
+        component: HomeNews,
+      },
+      {
+        path: "message",
+        component: HomeMessage,
+      },
+      //   ,{
+      //     path: '/profile',
+      //     component: Profile
+      //   }
+    ],
   },
   // {
   //   path: "/about",
