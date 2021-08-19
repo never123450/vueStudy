@@ -28,15 +28,14 @@ export default {
       return this.$route.path.indexOf(this.path) !== -1;
     },
     activeStyle() {
-    return this.isActive ? { color: this.activeColor } : {};
-  },
+      return this.isActive ? { color: this.activeColor } : {};
+    },
   },
   methods: {
     itemClick() {
       this.$router.replace(this.path);
     },
   },
-  
 };
 </script>
 
@@ -55,5 +54,4 @@ export default {
   vertical-align: middle;
   margin-bottom: 2px;
 }
-
 </style>

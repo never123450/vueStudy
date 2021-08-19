@@ -18,6 +18,7 @@
 <script>
 export default {
   name: "APP",
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   data() {
     return {
       userId: "xwy",
@@ -25,6 +26,7 @@ export default {
     };
   },
   methods: {
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     homeClick() {
       // 通过代码的方式修改路由 vue-router
       // push => pushState
@@ -32,21 +34,24 @@ export default {
       this.$route.replace("/home");
       console.log("homeClick");
     },
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     aboutClick() {
       // $router.push('/about');
       this.$router.replace("/about");
       console.log("aboutClick");
     },
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     userClick() {
       this.$router.push("/user/" + this.userId);
     },
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     profileClick() {
       this.$router.push({
         path: "/profile",
         query: {
           name: "kobe",
           age: 11,
-          height: 1.9
+          height: 1.9,
         },
       });
     },
