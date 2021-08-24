@@ -10,6 +10,14 @@
 <script>
 export default {
   name: "Profile",
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  created() {
+    console.log("created");
+  },
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  destroyed() {
+    console.log("destroyed");
+  },
 };
 </script>
 <style scoped></style>

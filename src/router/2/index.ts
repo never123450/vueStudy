@@ -1,6 +1,6 @@
 import Vue from "vue";
 // 路由配置相关信息
-import VueRouter, { RouteConfig } from "vue-router";
+import VueRouter from "vue-router";
 // import Home from "../views/Home.vue";
 
 const Home = () => import("../../views/2/home/home.vue");
@@ -11,6 +11,7 @@ const Profile = () => import("../../views/2/profile/profile.vue");
 Vue.use(VueRouter);
 
 // 创建路由对象
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const routes: Array<any> = [
   {
     path: "/2/category",

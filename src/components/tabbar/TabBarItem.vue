@@ -18,20 +18,24 @@ export default {
       default: "red",
     },
   },
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   data() {
     return {
       //   isActive: true,
     };
   },
   computed: {
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     isActive() {
       return this.$route.path.indexOf(this.path) !== -1;
     },
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     activeStyle() {
       return this.isActive ? { color: this.activeColor } : {};
     },
   },
   methods: {
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     itemClick() {
       this.$router.replace(this.path);
     },

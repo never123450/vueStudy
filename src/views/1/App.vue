@@ -3,7 +3,7 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
-      <router-link :to="'/user/' + userId">用户</router-link> |
+      <!-- <router-link :to="'/user/' + userId">用户</router-link> | -->
       <!-- <router-link
         :to="{ path: '/profile', query: { name: 'why', age: 11, height: 1.9 } }"
         >档案</router-link
@@ -11,7 +11,10 @@
       <button @click="userClick">用户</button>
       <button @click="profileClick">档案</button>
     </div>
-    <router-view />
+
+    <keep-alive exclude="Profile">
+      <router-view />
+    </keep-alive>
   </div>
 </template>
 

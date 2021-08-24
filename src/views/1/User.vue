@@ -18,6 +18,14 @@ export default {
       return this.$route.params.userId;
     },
   },
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  created() {
+    console.log("created");
+  },
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  destroyed() {
+    console.log("destroyed");
+  },
   methods: {
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     btnClick() {
