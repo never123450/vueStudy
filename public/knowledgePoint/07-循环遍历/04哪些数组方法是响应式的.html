@@ -47,6 +47,8 @@
         // this.letters.splice(1,3,'m','l','n')
         // 插入元素:第二个参数,传入 0,并且后面跟上要插入的元素
         this.letters.splice(1,0,'m','l','m')
+        // set（要修改的对象，索引值，修改后的值）
+        Vue.set(this.letters,0,'bbbbbb')
       }
     }
 
